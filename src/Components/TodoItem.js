@@ -2,11 +2,11 @@ import React from "react";
 function TodoItem(props){
     return (
         <li>
-            <p>Llorar {props.item}</p>
+            <p>{props.item.text}</p>
             V
             <input title={"O"} value={"D"} type={"checkbox"}/>
             X
-            <input title={"X"} type={"checkbox"}/>
+            <input title={"X"} type={"checkbox"} checked={props.item.isCompleted ? true : false}/>
 
         </li>
     )

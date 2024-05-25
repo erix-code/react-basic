@@ -1,6 +1,6 @@
 import React from "react";
 
-function TodoCounter () {
-    return(<h1>This is the counter</h1>)
+function TodoCounter ({tasksQuantity, completedTasks}) {
+    return(<h1>Completed tasks {completedTasks} of {tasksQuantity}</h1>)
 }
 export default TodoCounter;
