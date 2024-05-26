@@ -4,27 +4,18 @@
   src: url("./dist/fonts/PoetsenOne-Regular.ttf") format('woff2');
 }
 
-
-
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: #e1eec3;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #f05053, #e1eec3);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f05053, #e1eec3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "node_modules/bootstrap/scss/functions";
 // 2. Include any default variable overrides here
-$body-bg: #111232;
-$body-color: white;
 $font-family-base: "Poetsen One";
+$primary: #f05053;
+$btn-border-radius: 4px;
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "node_modules/bootstrap/scss/variables";
@@ -41,3 +32,6 @@ $font-family-base: "Poetsen One";
 //));
 
 @import "node_modules/bootstrap/scss/reboot";
+
+@import "node_modules/bootstrap/scss/buttons";
+@import "node_modules/bootstrap/scss/bootstrap";
