@@ -1,11 +1,11 @@
 import logo from './platzi.webp';
 import './App.css';
 import React from "react";
-import TodoItem from "./Components/TodoItem";
-import {TodoList} from "./Components/TodoList";
-import TodoSearch from "./Components/TodoSearch";
-import TodoCounter from "./Components/TodoCounter";
-import {CreateTodoButton} from "./Components/CreateTodoButton";
+import TodoItem from "./Components/TodoItem/TodoItem";
+import {TodoList} from "./Components/TodoList/TodoList";
+import TodoSearch from "./Components/TodoSearch/TodoSearch";
+import TodoCounter from "./Components/TodoCounter/TodoCounter";
+import {CreateTodoButton} from "./Components/CreateTodoButton/CreateTodoButton";
 
 function App() {
     let tasks = [{text: "Homework", isCompleted: false},
