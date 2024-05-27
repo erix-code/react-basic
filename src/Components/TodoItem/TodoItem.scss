@@ -7,3 +7,21 @@
   }
 }
 
+.badge-todo {
+  left: 25%;
+  bottom: 60%;
+  font-size: 16px;
+  @media (min-width: 768px) {
+    left: 12%;
+  }
+  @media (min-width: 1024px) {
+    left: 10%;
+  }
+  @media (min-width: 1440px) {
+    left: 7%;
+  }
+}
+.my-2rem {
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+}
