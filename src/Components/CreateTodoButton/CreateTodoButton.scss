@@ -1,0 +1,24 @@
+.add-button {
+  padding-right: 2px;
+  font-size: 5rem;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  margin-right: 5px;
+  margin-bottom: 3px;
+
+  &:hover {
+    -webkit-box-shadow: 0px 0px 10px 2px $secondary;
+    -moz-box-shadow: 0px 0px 10px 2px  $secondary;
+    box-shadow: 0px 0px 10px 2px  $secondary;
+  }
+}
+
+.icon-color{
+  margin-right: 5px;
+  margin-bottom: 3px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  color: $dark;
+}

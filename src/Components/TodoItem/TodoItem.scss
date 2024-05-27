@@ -1,0 +1,9 @@
+.checkbox-lg{
+  width: 2.0em;
+  height: 2.0em;
+  background: green;
+  &:hover {
+    background-color: yellow;
+  }
+}
+

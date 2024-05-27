@@ -1,0 +1,54 @@
+/* Hide the default checkbox */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+/* Create a custom checkmark */
+.custom-checkbox {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+/* Style the checkmark box */
+.custom-checkbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 2px;
+}
+
+/* Checkmark (hidden by default) */
+.custom-checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.award-icon{
+  display: none;
+  padding-left: 3px;
+  font-size: 34px;
+  color: #f05154;
+}
+
+
+.custom-checkbox:has(input[type="checkbox"]:checked)  {
+  .award-icon {
+    display: inline;
+  }
+}
+
+/* Change background color when checked */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark {
+  background-color: white;
+}
+.border-colored {
+  box-shadow: 0px 0px 1px 2px #a63639;
+}

@@ -8,10 +8,11 @@ import TodoCounter from "./Components/TodoCounter/TodoCounter";
 import {CreateTodoButton} from "./Components/CreateTodoButton/CreateTodoButton";
 
 function App() {
-    let tasks = [{text: "Homework", isCompleted: false},
-        {text: "Clean the dishes", isCompleted: true},
-        {text: "Create a react app", isCompleted: true},
-        {text: "Create a react app", isCompleted: false}
+    let tasks = [
+        {emoji: "🔥", text: "Homework", isCompleted: false},
+        {emoji: "🔥", text: "Clean the dishes", isCompleted: true},
+        {emoji: "🔥", text: "Create a react app", isCompleted: true},
+        {emoji: "🔥", text: "Create a react app", isCompleted: false}
     ];
 
     return (<React.Fragment>

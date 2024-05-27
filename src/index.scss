@@ -5,20 +5,24 @@
 }
 
 body {
-  background: #e1eec3;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #f05053, #e1eec3);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #f05053, #e1eec3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to right bottom, #e1eec3, #f05053);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right bottom,#e1eec3, #f05053 ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-attachment: fixed;
 }
+
+// Fontawesome
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "node_modules/@fortawesome/fontawesome-free/scss/brands";
+
 
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "node_modules/bootstrap/scss/functions";
 // 2. Include any default variable overrides here
-$font-family-base: "Poetsen One";
-$primary: #f05053;
-$btn-border-radius: 4px;
+
 
 // 3. Include remainder of required Bootstrap stylesheets
-@import "node_modules/bootstrap/scss/variables";
+@import "dist/scss/variables";
 // 4. Include any default map overrides here
 
 // 5. Include remainder of required parts
@@ -35,3 +39,5 @@ $btn-border-radius: 4px;
 
 @import "node_modules/bootstrap/scss/buttons";
 @import "node_modules/bootstrap/scss/bootstrap";
+
+@import "Components/CreateTodoButton/CreateTodoButton";
