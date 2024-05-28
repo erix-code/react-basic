@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 
-export default  function TodoSearch () {
+export default  function TodoSearch ({searchQuery, setSearchQuery}) {
+    console.log(searchQuery);
     return (
         <div className={"m-3 mt-5"}>
             <div className={"container"}>
                 <div className="row justify-content-md-center">
                     <div className={"col-9 col-md-6"}>
-                        <input className={"form-control"} id={"todo-search"} placeholder={"Search"}
+                        <input className={"form-control"}
+                               id={"todo-search"}
+                               value={searchQuery}
+                               placeholder={"Search"}
+                               onChange={(event)=>{ setSearchQuery(event.target.value)}}
                                type="text"/>
                     </div>
                     <div className="col-3 col-md-2">
