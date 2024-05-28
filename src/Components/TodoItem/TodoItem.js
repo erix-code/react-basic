@@ -3,7 +3,6 @@ import "./TodoItem.scss";
 import TodoCheckBox from "../../Elements/TodoCheckBox/TodoCheckBox";
 
 function TodoItem(props) {
-
     return (<div className={"row my-2rem"}>
             <div className={"card rounded-end-3 shadow-lg"}>
                 <div className={"row justify-content-center "}>
@@ -16,9 +15,8 @@ function TodoItem(props) {
                         <p className={"my-2"}>{props.item.text}</p>
                     </div>
                     <div className="col col-2  bg-primary rounded-end-3 border-colored py-2">
-                        <div className="d-flex justify-content-center">
-                            <TodoCheckBox checked={props.item.isCompleted}
-                                          onClick={!props.item.isCompleted}></TodoCheckBox>
+                        <div className={`d-flex justify-content-center ${props.item.isCompleted}`} >
+                            <TodoCheckBox checked={props.item.isCompleted} ></TodoCheckBox>
                         </div>
                     </div>
                 </div>

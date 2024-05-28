@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 
 export default  function TodoSearch ({searchQuery, setSearchQuery}) {
-    console.log(searchQuery);
     return (
         <div className={"m-3 mt-5"}>
             <div className={"container"}>

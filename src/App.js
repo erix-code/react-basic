@@ -7,33 +7,49 @@ import TodoSearch from "./Components/TodoSearch/TodoSearch";
 import TodoCounter from "./Components/TodoCounter/TodoCounter";
 import {CreateTodoButton} from "./Components/CreateTodoButton/CreateTodoButton";
 
-let tasks = [
-    {emoji: "🔥", text: "Homework", isCompleted: false, status:"pending"},
-    {emoji: "🔥", text: "Clean the dishes", isCompleted: true, status:"completed"},
-    {emoji: "🔥", text: "Create a react app", isCompleted: true, status:"completed"},
+let defaultTasks = [
+    {emoji: "💀", text: "Homework", isCompleted: false, status:"pending"},
+    {emoji: "💀", text: "Clean the dishes", isCompleted: false, status:"completed"},
+    {emoji: "🔥", text: "Create a react app", isCompleted: false, status:"completed"},
     {emoji: "🔥", text: "Create a new Laravel app", isCompleted: true, status:"pending"},
-    {emoji: "🔥", text: "Create a new Laravel app", isCompleted: true, status:"pending"},
-    {emoji: "🔥", text: "Create a new Laravel app", isCompleted: false, status:"pending"}
+    {emoji: "🔥", text: "Create a new Laravel 6.3 app", isCompleted: false, status:"pending"},
+    {emoji: "🔥", text: "Create a new Laravel 4.5 app", isCompleted: true, status:"pending"}
 ];
 function App() {
-    const [todoTasks, setTodoTasks] = useState(tasks);
+    let [tasks, setTasks] = useState(defaultTasks);
     const [searchQuery, setSearchQuery] = useState("");
-    const [completedTasks, setCompletedTodos] = useState(todoTasks.filter(task => {
-        return task.isCompleted
-    }));
+
+    // Real time filtering getting the completed tasks
+    const completedTasks = tasks.filter(task => {
+        if ((task.text.toLowerCase().includes(searchQuery.toLowerCase()) !== false || task.emoji.includes(searchQuery) !== false) && task.isCompleted) {
+            return true;
+        }
+        return false;
+    });
+
+    // Real time filtering getting the filtered tasks
+    const filteredTasks = tasks.filter((task) => {
+        if (task.text.toLowerCase().includes(searchQuery.toLowerCase()) !== false || task.emoji.includes(searchQuery) !== false) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    console.log(filteredTasks);
+
 
     return (
     <React.Fragment>
-        <TodoCounter tasksQuantity={todoTasks.length} completedTasks={completedTasks.length}></TodoCounter>
-        <TodoSearch searchQuery={searchQuery} setSearchQuery={setSearchQuery}></TodoSearch>
+        <TodoCounter tasksQuantity={filteredTasks.length} completedTasks={completedTasks.length}></TodoCounter>
+        <TodoSearch searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <TodoList>
 
             {/*Ecmscript 6*/}
-            {todoTasks.map((item, key) => (
+            {filteredTasks.map((item, key) => (
                 <TodoItem item={item} key={key}></TodoItem>)
             )}
         </TodoList>
-        <CreateTodoButton tasks={todoTasks}></CreateTodoButton>
+        <CreateTodoButton tasks={tasks}></CreateTodoButton>
     </React.Fragment>);
 }
 
