@@ -12,11 +12,11 @@ function TodoItem(props) {
                         </h4>
                     </div>
                     <div className="col col-9 text-start">
-                        <p className={"my-2"}>{props.item.text}</p>
+                        <p className={`my-2 ${props.item.isCompleted ? "text-decoration-red-through" : "" }`}>{props.item.text}</p>
                     </div>
                     <div className="col col-2  bg-primary rounded-end-3 border-colored py-2">
                         <div className={`d-flex justify-content-center ${props.item.isCompleted}`} >
-                            <TodoCheckBox checked={props.item.isCompleted} ></TodoCheckBox>
+                            <TodoCheckBox checked={props.item.isCompleted} onClickCheck={props.completeTask} id={props.item.id} ></TodoCheckBox>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,9 @@ function TodoItem(props) {
                         <i className={`fa-solid fa-circle-check` }></i> Status: Done
                     </div>
                 </span>
-                <button className={`position-absolute icon-remove-position`}>
+                <button className={`position-absolute icon-remove-position`}
+                        onClick={() => {props.removeTask(props.item.id)}}
+                >
                     <i className={"fa fa-circle-xmark icon-remove"}></i>
                 </button>
             </div>

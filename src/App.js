@@ -8,12 +8,12 @@ import TodoCounter from "./Components/TodoCounter/TodoCounter";
 import {CreateTodoButton} from "./Components/CreateTodoButton/CreateTodoButton";
 
 let defaultTasks = [
-    {emoji: "💀", text: "Homework", isCompleted: false, status:"pending"},
-    {emoji: "💀", text: "Clean the dishes", isCompleted: false, status:"completed"},
-    {emoji: "🔥", text: "Create a react app", isCompleted: false, status:"completed"},
-    {emoji: "🔥", text: "Create a new Laravel app", isCompleted: true, status:"pending"},
-    {emoji: "🔥", text: "Create a new Laravel 6.3 app", isCompleted: false, status:"pending"},
-    {emoji: "🔥", text: "Create a new Laravel 4.5 app", isCompleted: true, status:"pending"}
+    {id:1, emoji: "💀", text: "Homework", isCompleted: false, status:"pending"},
+    {id:2, emoji: "💀", text: "Clean the dishes", isCompleted: false, status:"completed"},
+    {id:3, emoji: "🔥", text: "Create a react app", isCompleted: false, status:"completed"},
+    {id:4, emoji: "🔥", text: "Create a new Laravel app", isCompleted: true, status:"pending"},
+    {id:5, emoji: "🔥", text: "Create a new Laravel 6.3 app", isCompleted: false, status:"pending"},
+    {id:6, emoji: "🔥", text: "Create a new Laravel 4.5 app", isCompleted: true, status:"pending"}
 ];
 function App() {
     let [tasks, setTasks] = useState(defaultTasks);
@@ -21,34 +21,26 @@ function App() {
 
     // Real time filtering getting the completed tasks
     const completedTasks = tasks.filter(task => {
-        if ((task.text.toLowerCase().includes(searchQuery.toLowerCase()) !== false || task.emoji.includes(searchQuery) !== false) && task.isCompleted) {
-            return true;
-        }
-        return false;
+        const taskText = task.text.toLowerCase();
+        const taskEmoji = task.emoji;
+        const lowerCaseSearchText = searchQuery.toLowerCase();
+
+        return ((taskText.includes(lowerCaseSearchText) !== false || taskEmoji.includes(searchQuery) !== false) && task.isCompleted);
     });
 
     // Real time filtering getting the filtered tasks
     const filteredTasks = tasks.filter((task) => {
-        if (task.text.toLowerCase().includes(searchQuery.toLowerCase()) !== false || task.emoji.includes(searchQuery) !== false) {
-            return true;
-        } else {
-            return false;
-        }
-    });
-    console.log(filteredTasks);
+        const taskText = task.text.toLowerCase();
+        const taskEmoji = task.emoji;
 
+        return (taskText.includes(searchQuery.toLowerCase()) !== false || taskEmoji.includes(searchQuery) !== false);
+    });
 
     return (
     <React.Fragment>
         <TodoCounter tasksQuantity={filteredTasks.length} completedTasks={completedTasks.length}></TodoCounter>
         <TodoSearch searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <TodoList>
-
-            {/*Ecmscript 6*/}
-            {filteredTasks.map((item, key) => (
-                <TodoItem item={item} key={key}></TodoItem>)
-            )}
-        </TodoList>
+        <TodoList tasks={tasks} filteredTasks={filteredTasks} setTasks={setTasks}   />
         <CreateTodoButton tasks={tasks}></CreateTodoButton>
     </React.Fragment>);
 }

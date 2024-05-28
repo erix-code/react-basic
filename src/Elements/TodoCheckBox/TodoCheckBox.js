@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import "./TodoCheckBox.scss";
 
-export default function TodoCheckBox({checked}) {
+export default function TodoCheckBox({checked, onClickCheck, id}) {
     return (
     <label className="custom-checkbox" >
-        <input type="checkbox" checked={checked} />
-        <span className="checkmark">
+        <input type="checkbox" checked={checked} readOnly={true}/>
+        <span className="checkmark" onClick={() => { onClickCheck(id) }}>
             <i className={"fa-solid fa-check award-icon"}></i>
         </span>
     </label>
