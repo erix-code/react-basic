@@ -1,31 +1,39 @@
 import logo from './platzi.webp';
 import './App.css';
-import React from "react";
+import React, {useEffect, useState} from "react";
 import TodoItem from "./Components/TodoItem/TodoItem";
 import {TodoList} from "./Components/TodoList/TodoList";
 import TodoSearch from "./Components/TodoSearch/TodoSearch";
 import TodoCounter from "./Components/TodoCounter/TodoCounter";
 import {CreateTodoButton} from "./Components/CreateTodoButton/CreateTodoButton";
 
+let tasks = [
+    {emoji: "🔥", text: "Homework", isCompleted: false, status:"pending"},
+    {emoji: "🔥", text: "Clean the dishes", isCompleted: true, status:"completed"},
+    {emoji: "🔥", text: "Create a react app", isCompleted: true, status:"completed"},
+    {emoji: "🔥", text: "Create a new Laravel app", isCompleted: true, status:"pending"},
+    {emoji: "🔥", text: "Create a new Laravel app", isCompleted: true, status:"pending"},
+    {emoji: "🔥", text: "Create a new Laravel app", isCompleted: false, status:"pending"}
+];
 function App() {
-    let tasks = [
-        {emoji: "🔥", text: "Homework", isCompleted: false},
-        {emoji: "🔥", text: "Clean the dishes", isCompleted: true},
-        {emoji: "🔥", text: "Create a react app", isCompleted: true},
-        {emoji: "🔥", text: "Create a react app", isCompleted: false}
-    ];
+    const [todoTasks, setTodoTasks] = useState(tasks);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [completedTasks, setCompletedTodos] = useState(todoTasks.filter(task => {
+        return task.isCompleted
+    }));
 
-    return (<React.Fragment>
-        <TodoCounter tasksQuantity={tasks.length} completedTasks={2}></TodoCounter>
-        <TodoSearch></TodoSearch>
+    return (
+    <React.Fragment>
+        <TodoCounter tasksQuantity={todoTasks.length} completedTasks={completedTasks.length}></TodoCounter>
+        <TodoSearch searchQuery={searchQuery} setSearchQuery={setSearchQuery}></TodoSearch>
         <TodoList>
 
             {/*Ecmscript 6*/}
-            {tasks.map((item, key) => (
+            {todoTasks.map((item, key) => (
                 <TodoItem item={item} key={key}></TodoItem>)
             )}
         </TodoList>
-        <CreateTodoButton tasks={tasks}></CreateTodoButton>
+        <CreateTodoButton tasks={todoTasks}></CreateTodoButton>
     </React.Fragment>);
 }
 
