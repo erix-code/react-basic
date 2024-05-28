@@ -15,7 +15,7 @@ function TodoItem(props) {
                     <div className="col col-9 text-start">
                         <p className={"my-2"}>{props.item.text}</p>
                     </div>
-                    <div className="col col-2  bg-primary rounded-end-3 border-colored py-1">
+                    <div className="col col-2  bg-primary rounded-end-3 border-colored py-2">
                         <div className="d-flex justify-content-center">
                             <TodoCheckBox checked={props.item.isCompleted}
                                           onClick={!props.item.isCompleted}></TodoCheckBox>
@@ -31,6 +31,9 @@ function TodoItem(props) {
                         <i className={`fa-solid fa-circle-check` }></i> Status: Done
                     </div>
                 </span>
+                <button className={`position-absolute icon-remove-position`}>
+                    <i className={"fa fa-circle-xmark icon-remove"}></i>
+                </button>
             </div>
     </div>)
 
