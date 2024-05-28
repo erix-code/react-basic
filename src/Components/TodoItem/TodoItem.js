@@ -23,7 +23,7 @@ function TodoItem(props) {
                     </div>
                 </div>
 
-                <span className={`position-absolute badge-todo translate-middle badge font-monospace text-dark ${props.item.isCompleted ? "bg-success-subtle" : "bg-warning-subtle"} `}>
+                <span className={`position-absolute badge-todo translate-middle badge font-monospace text-dark ${props.item.isCompleted ? "bg-primary-subtle" : "bg-warning-subtle"} `}>
                     <div className={`${props.item.isCompleted ? "d-none" : ""}`}>
                         <i className={`fa-solid fa-circle-exclamation`} ></i> Status: Doing
                     </div>
