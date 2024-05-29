@@ -16,7 +16,7 @@ function TodoItem(props) {
                     </div>
                     <div className="col col-2  bg-primary rounded-end-3 border-colored py-2">
                         <div className={`d-flex justify-content-center ${props.item.isCompleted}`} >
-                            <TodoCheckBox checked={props.item.isCompleted} onClickCheck={props.completeTask} id={props.item.id} ></TodoCheckBox>
+                            <TodoCheckBox checked={props.item.isCompleted} onClickCheck={() => {props.completeTask(props.item.id)}} id={props.item.id} ></TodoCheckBox>
                         </div>
                     </div>
                 </div>
