@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
 import "./TodoList.scss";
 import TodoItem from "../TodoItem/TodoItem";
-function TodoList({ filteredTasks, tasks, setTasks}) {
+function TodoList({ filteredTasks, tasks, saveTasks}) {
     const removeTask = (id) => {
         const newTasks: [] = [...tasks];
         const index = tasks.findIndex((task) => {
             return task.id === id
         });
         newTasks.splice(index, 1);
-        setTasks(newTasks);
+        saveTasks(newTasks);
     };
     const completeTask = (id) => {
         const newTasks: [] = [...tasks];
@@ -17,7 +17,7 @@ function TodoList({ filteredTasks, tasks, setTasks}) {
         });
         newTasks[index].isCompleted = !newTasks[index].isCompleted;
         console.log(newTasks);
-        setTasks(newTasks);
+        saveTasks(newTasks);
     };
 
     return(
