@@ -1,0 +1,33 @@
+// My own styles
+@import "font";
+@import "body";
+
+
+// Fontawesome
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "node_modules/@fortawesome/fontawesome-free/scss/brands";
+
+
+// Importing bootstrap 5 styles
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "node_modules/bootstrap/scss/functions";
+// 2. Include any default variable overrides here
+
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "personalized-variables";
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "node_modules/bootstrap/scss/maps";
+@import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/root";
+
+// Import bootstrap components
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/buttons";
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// Adding components styles
+@import "Components/CreateTodoButton/CreateTodoButton";
