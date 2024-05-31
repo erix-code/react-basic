@@ -1,12 +1,13 @@
 import './App.css';
-import React, { useState} from "react";
+import React, {useEffect, useState} from "react";
 import {TodoList} from "../TodoList/TodoList";
 import TodoSearch from "../TodoSearch/TodoSearch";
 import TodoCounter from "../TodoCounter/TodoCounter";
 import {CreateTodoButton} from "../CreateTodoButton/CreateTodoButton";
 import useLocalStorageItems from "../../Hooks/UseLocalStorageItems";
+import CustomSpinner from "../../Elements/CustomSpinner/CustomSpinner";
 // INIT THE TASKS
-// let defaultTasks:[] = [
+// let defaultTasks = [
 //     {id:1, emoji: "💀", text: "Homework", isCompleted: false, status:"pending"},
 //     {id:2, emoji: "💀", text: "Clean the dishes", isCompleted: false, status:"completed"},
 //     {id:3, emoji: "🔥", text: "Create a react app", isCompleted: false, status:"completed"},
@@ -19,7 +20,7 @@ import useLocalStorageItems from "../../Hooks/UseLocalStorageItems";
 // localStorage.removeItem("TASKS_V1");
 
 function App() {
-    const [tasks, setTasks, saveItems] = useLocalStorageItems("TASKS_V1");
+    const {item:tasks,  saveItem:saveItem, isLoading, hasError} = useLocalStorageItems("TASKS_V1");
     const [searchQuery, setSearchQuery] = useState("");
 
     // Real time filtering getting the completed tasks
@@ -39,11 +40,22 @@ function App() {
         return (taskText.includes(searchQuery.toLowerCase()) !== false || taskEmoji.includes(searchQuery) !== false);
     });
 
+    React.useEffect(()=>{
+        console.log("Loooog 22");
+    }, [searchQuery]);
+
     return (
     <React.Fragment>
         <TodoCounter tasksQuantity={filteredTasks.length} completedTasks={completedTasks.length}></TodoCounter>
         <TodoSearch searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        <TodoList tasks={tasks} filteredTasks={filteredTasks} saveTasks={saveItems}   />
+        {isLoading &&
+            <CustomSpinner/>
+        }
+        {hasError && <p>Se ha encontrado un error </p>}
+        {(!isLoading && tasks.length == 0) && <p>Create tu primera tarea</p>}
+        { tasks.length > 0 &&
+            <TodoList tasks={tasks} filteredTasks={filteredTasks} saveTasks={saveItem}   />
+        }
         <CreateTodoButton tasks={tasks}></CreateTodoButton>
     </React.Fragment>);
 }
