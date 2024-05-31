@@ -12,20 +12,23 @@ export  default function useLocalStorageItems(item_name: string) {
         setIsLoading(false);
     };
     const initialize_item = () => {
-        setIsLoading(true);
-        const storedItem:string | null = localStorage.getItem(item_name);
-        let parsedItem;
-        if (storedItem) {
-
-            parsedItem = JSON.parse(storedItem);
-        } else {
-            parsedItem = [];
-        }
-        setTimeout(()=> {
-            setItem(parsedItem);
+        try {
+            setIsLoading(true);
+            const storedItem:string | null = localStorage.getItem(item_name);
+            let parsedItem;
+            if (storedItem) {
+                parsedItem = JSON.parse(storedItem);
+            } else {
+                parsedItem = [];
+            }
+            setTimeout(()=> {
+                setItem(parsedItem);
+                setIsLoading(false);
+            }, 1000)
+        } catch (e) {
             setIsLoading(false);
-        }, 1000)
-
+            setHasError(true);
+        }
     }
 
     useEffect(() => {

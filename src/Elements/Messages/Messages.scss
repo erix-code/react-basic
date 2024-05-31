@@ -1,0 +1,58 @@
+.custom-text {
+  height: 300px;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.custom-text {
+  font-size: 18px;
+
+  .icon-center-span {
+    display: inline-block;
+    font-size: 42px;
+  }
+
+
+}
+
+.rotate-center {
+  animation: rotate-center 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.shake-left-right {
+  animation: shake-left-right 2s linear both;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake-left-right {
+  0%, 100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 50%
+  }
+  10% {
+    transform: rotate(8deg)
+  }
+  20%, 40%, 60% {
+    transform: rotate(-10deg)
+  }
+  30%, 50%, 70% {
+    transform: rotate(10deg)
+  }
+  80% {
+    transform: rotate(-8deg)
+  }
+  90% {
+    transform: rotate(8deg)
+  }
+}
