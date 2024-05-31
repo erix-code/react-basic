@@ -1,11 +1,10 @@
-import logo from './platzi.webp';
 import './App.css';
 import React, { useState} from "react";
-import {TodoList} from "./Components/TodoList/TodoList";
-import TodoSearch from "./Components/TodoSearch/TodoSearch";
-import TodoCounter from "./Components/TodoCounter/TodoCounter";
-import {CreateTodoButton} from "./Components/CreateTodoButton/CreateTodoButton";
-import useLocalStorageItems from "./Hooks/UseLocalStorageItems";
+import {TodoList} from "../TodoList/TodoList";
+import TodoSearch from "../TodoSearch/TodoSearch";
+import TodoCounter from "../TodoCounter/TodoCounter";
+import {CreateTodoButton} from "../CreateTodoButton/CreateTodoButton";
+import useLocalStorageItems from "../../Hooks/UseLocalStorageItems";
 // INIT THE TASKS
 // let defaultTasks:[] = [
 //     {id:1, emoji: "💀", text: "Homework", isCompleted: false, status:"pending"},
