@@ -1,9 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import "./TodoCounter.scss";
-function TodoCounter ({tasksQuantity, completedTasks}) {
+import {TodoContext} from "../../Contexts/TodoContext";
+function TodoCounter () {
+    //Another way of using context
+    const { completedTasks, filteredTasks} = useContext(TodoContext);
     const [isCompleted, setIsCompleted] = useState(false);
     const detectComplete = () => {
-        if (tasksQuantity === completedTasks) {
+        if (filteredTasks.length === completedTasks.length) {
             setIsCompleted(true);
             console.log(isCompleted);
         } else {
@@ -13,14 +16,17 @@ function TodoCounter ({tasksQuantity, completedTasks}) {
     }
     useEffect(() => {
         detectComplete();
-    }, [completedTasks, tasksQuantity]);
+
+    }, [completedTasks, filteredTasks]);
     return(
         <>
             <h1 className={"title-counter"}>
                 📔 TODO LIST!
             </h1>
             <h2 className={"text-center"}>
-                { isCompleted & tasksQuantity > 0 ? "Great You Have Completed all your tasks 🎉!" : `Completed tasks ${completedTasks} of ${tasksQuantity}` }
+                { isCompleted & filteredTasks.length > 0 ?
+                    "Great You Have Completed all your tasks 🎉!" :
+                    `Completed tasks ${completedTasks.length} of ${filteredTasks.length}` }
             </h2>
 
         </>

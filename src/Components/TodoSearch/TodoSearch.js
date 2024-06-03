@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
+import {TodoContext} from "../../Contexts/TodoContext";
 
-export default  function TodoSearch ({searchQuery, setSearchQuery}) {
+export default  function TodoSearch () {
+    const {searchQuery, setSearchQuery} = useContext(TodoContext);
     return (
         <div className={"m-3 mt-5"}>
             <div className={"container"}>
