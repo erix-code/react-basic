@@ -10,22 +10,11 @@ import CreateTaskMessage from "../../Elements/Messages/CreateTaskMessage";
 import Modal from "../../Elements/Modal/Modal";
 import {TodoContext, TodoProvider} from "../../Contexts/TodoContext";
 import {AuthContext} from "../../Contexts/AuthContext";
-// INIT THE TASKS
-// let defaultTasks = [
-//     {id:1, emoji: "💀", text: "Homework", isCompleted: false, status:"pending"},
-//     {id:2, emoji: "💀", text: "Clean the dishes", isCompleted: false, status:"completed"},
-//     {id:3, emoji: "🔥", text: "Create a react app", isCompleted: false, status:"completed"},
-//     {id:4, emoji: "🔥", text: "Create a new Laravel app", isCompleted: true, status:"pending"},
-//     {id:5, emoji: "🔥", text: "Create a new React 6.3 app", isCompleted: false, status:"pending"},
-//     {id:6, emoji: "🔥", text: "Create a new Laravel 4.5 app", isCompleted: true, status:"pending"},
-//     {id:7, emoji: "🔥", text: "Create a new Angular 4.5 app", isCompleted: true, status:"pending"}
-// ];
-// localStorage.setItem("TASKS_V1", JSON.stringify(defaultTasks));
-// localStorage.removeItem("TASKS_V1");
+import { EmojiList } from "../../Variables/EmojiList";
+
 function App() {
     const { tasks,saveItem, filteredTasks, isLoading, hasError, showModal, setShowModal} = useContext(TodoContext);
     const { user, setUser } = useContext(AuthContext);
-    console.log("User is", user);
     return (
         <React.Fragment>
             <TodoCounter></TodoCounter>
@@ -41,19 +30,48 @@ function App() {
                 <TodoList tasks={tasks} filteredTasks={filteredTasks} saveTasks={saveItem}/>
             }
 
-            <button className="btn btn-primary" onClick={() => {
-                setUser(2);
-            }}>
-                Change user
-            </button>
 
             <CreateTodoButton showModal={showModal} setShowModal={setShowModal}></CreateTodoButton>
             {showModal && (
-                <Modal >
-                    La funcionalidad de agregar Todos
+                <Modal>
+                        <div className="modal-dialog modal-dialog-centered modal-lg">
+                            <div className="modal-content bg-secondary-subtle">
+
+                                <div className="modal-body">
+                                    <h4 className={"modal-title mb-5 "}>Create New Task</h4>
+                                    <form>
+                                        <div className="row">
+                                            <div className="col-md-10 col-12">
+                                                <div className={"mx-2"}>
+                                                    <label htmlFor="title" className={"form-label"}>Title</label>
+                                                    <textarea type="text" className={"form-control"} rows={4} id={"title"}/>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-2 col-12">
+                                                <div className={"mx-2"}>
+                                                    <label htmlFor="emoji" className={"form-label"}>Emoji</label>
+                                                    <select name="emoji" id="emoji" className={"form-select"}>
+                                                        {EmojiList.map((emoji: string) => {
+                                                            return <option value={emoji}>{emoji}</option>;
+                                                        })}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div className="modal-footer justify-content-between">
+                                    <button className="btn btn-outline-dark" onClick={() => {
+                                        setShowModal(!showModal)
+                                    }}>Cerrar
+                                    </button>
+                                    <button className="btn btn-dark">Aceptar</button>
+                                </div>
+                            </div>
+                        </div>
                 </Modal>
             )}
-
 
 
         </React.Fragment>
