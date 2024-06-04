@@ -6,7 +6,7 @@ const TodoContext = React.createContext();
 function TodoProvider({children}) {
     const {item: tasks, saveItem: saveItem, isLoading, hasError} = useLocalStorageItems("TASKS_V1");
     const [searchQuery, setSearchQuery] = useState("");
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(false);
     // Real time filtering getting the completed tasks
     const completedTasks = tasks.filter(task => {
         const taskText = task.text.toLowerCase();
