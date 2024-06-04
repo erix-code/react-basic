@@ -8,6 +8,7 @@ import CustomSpinner from "../../Elements/CustomSpinner/CustomSpinner";
 import ErrorMessage from "../../Elements/Messages/ErrorMessage";
 import CreateTaskMessage from "../../Elements/Messages/CreateTaskMessage";
 import {TodoContext, TodoProvider} from "../../Contexts/TodoContext";
+import {AuthContext} from "../../Contexts/AuthContext";
 // INIT THE TASKS
 // let defaultTasks = [
 //     {id:1, emoji: "💀", text: "Homework", isCompleted: false, status:"pending"},
@@ -22,6 +23,8 @@ import {TodoContext, TodoProvider} from "../../Contexts/TodoContext";
 // localStorage.removeItem("TASKS_V1");
 function App() {
     const { tasks,saveItem, filteredTasks, isLoading, hasError} = useContext(TodoContext);
+    const { user, setUser } = useContext(AuthContext);
+    console.log("User is", user);
     return (
         <React.Fragment>
             <TodoCounter></TodoCounter>
@@ -36,7 +39,16 @@ function App() {
             {tasks.length > 0 &&
                 <TodoList tasks={tasks} filteredTasks={filteredTasks} saveTasks={saveItem}/>
             }
+
+            <button className="btn btn-primary" onClick={() => {
+                setUser(2);
+            }}>
+                Change user
+            </button>
+
             <CreateTodoButton tasks={tasks}></CreateTodoButton>
+
+
         </React.Fragment>
     );
 }
