@@ -4,9 +4,9 @@ import useLocalStorageItems from "../Hooks/UseLocalStorageItems";
 const TodoContext = React.createContext();
 
 function TodoProvider({children}) {
-    const {item:tasks,  saveItem:saveItem, isLoading, hasError} = useLocalStorageItems("TASKS_V1");
+    const {item: tasks, saveItem: saveItem, isLoading, hasError} = useLocalStorageItems("TASKS_V1");
     const [searchQuery, setSearchQuery] = useState("");
-
+    const [showModal, setShowModal] = useState(true);
     // Real time filtering getting the completed tasks
     const completedTasks = tasks.filter(task => {
         const taskText = task.text.toLowerCase();
@@ -23,17 +23,19 @@ function TodoProvider({children}) {
 
         return (taskText.includes(searchQuery.toLowerCase()) !== false || taskEmoji.includes(searchQuery) !== false);
     });
-    React.useEffect(()=>{
+    React.useEffect(() => {
         console.log("You are searching");
     }, [searchQuery]);
     return (
-    <TodoContext.Provider
-        value={{tasks, saveItem, isLoading, setSearchQuery,
-            hasError, completedTasks, filteredTasks}}>
-        {children}
-    </TodoContext.Provider>);
+        <TodoContext.Provider
+            value={{
+                tasks, saveItem, isLoading, setSearchQuery,
+                hasError, completedTasks, filteredTasks,
+                showModal, setShowModal
+            }}>
+            {children}
+        </TodoContext.Provider>);
 }
-
 
 
 export {TodoContext, TodoProvider}

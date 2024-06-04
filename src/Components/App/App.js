@@ -7,6 +7,7 @@ import {CreateTodoButton} from "../CreateTodoButton/CreateTodoButton";
 import CustomSpinner from "../../Elements/CustomSpinner/CustomSpinner";
 import ErrorMessage from "../../Elements/Messages/ErrorMessage";
 import CreateTaskMessage from "../../Elements/Messages/CreateTaskMessage";
+import Modal from "../../Elements/Modal/Modal";
 import {TodoContext, TodoProvider} from "../../Contexts/TodoContext";
 import {AuthContext} from "../../Contexts/AuthContext";
 // INIT THE TASKS
@@ -22,7 +23,7 @@ import {AuthContext} from "../../Contexts/AuthContext";
 // localStorage.setItem("TASKS_V1", JSON.stringify(defaultTasks));
 // localStorage.removeItem("TASKS_V1");
 function App() {
-    const { tasks,saveItem, filteredTasks, isLoading, hasError} = useContext(TodoContext);
+    const { tasks,saveItem, filteredTasks, isLoading, hasError, showModal, setShowModal} = useContext(TodoContext);
     const { user, setUser } = useContext(AuthContext);
     console.log("User is", user);
     return (
@@ -46,7 +47,13 @@ function App() {
                 Change user
             </button>
 
-            <CreateTodoButton tasks={tasks}></CreateTodoButton>
+            <CreateTodoButton showModal={showModal} setShowModal={setShowModal}></CreateTodoButton>
+            {showModal && (
+                <Modal >
+                    La funcionalidad de agregar Todos
+                </Modal>
+            )}
+
 
 
         </React.Fragment>
