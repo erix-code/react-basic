@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/react-basic/static/css/main.658fa743.css",
+    "main.js": "/react-basic/static/js/main.a6046caa.js",
+    "static/media/fa-solid-900.ttf": "/react-basic/static/media/fa-solid-900.bacd5de623fb563b961a.ttf",
+    "static/media/fa-brands-400.ttf": "/react-basic/static/media/fa-brands-400.60127e352b7a11f7f1bc.ttf",
+    "static/media/PoetsenOne-Regular.ttf": "/react-basic/static/media/PoetsenOne-Regular.22ae511e03fc2ed8d264.ttf",
+    "static/media/fa-solid-900.woff2": "/react-basic/static/media/fa-solid-900.4d986b00ff9ca3828fbd.woff2",
+    "static/media/fa-brands-400.woff2": "/react-basic/static/media/fa-brands-400.455ea818179b4def0c43.woff2",
+    "index.html": "/react-basic/index.html",
+    "main.658fa743.css.map": "/react-basic/static/css/main.658fa743.css.map",
+    "main.a6046caa.js.map": "/react-basic/static/js/main.a6046caa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.658fa743.css",
+    "static/js/main.a6046caa.js"
+  ]
+}
