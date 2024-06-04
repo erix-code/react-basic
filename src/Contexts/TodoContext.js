@@ -23,9 +23,7 @@ function TodoProvider({children}) {
 
         return (taskText.includes(searchQuery.toLowerCase()) !== false || taskEmoji.includes(searchQuery) !== false);
     });
-    React.useEffect(() => {
-        console.log("You are searching");
-    }, [searchQuery]);
+
     return (
         <TodoContext.Provider
             value={{

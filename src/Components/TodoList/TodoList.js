@@ -16,7 +16,6 @@ function TodoList({ filteredTasks, tasks, saveTasks}) {
             return task.id === id
         });
         newTasks[index].isCompleted = !newTasks[index].isCompleted;
-        console.log(newTasks);
         saveTasks(newTasks);
     };
 

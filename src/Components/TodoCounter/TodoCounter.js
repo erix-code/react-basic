@@ -8,10 +8,8 @@ function TodoCounter () {
     const detectComplete = () => {
         if (filteredTasks.length === completedTasks.length) {
             setIsCompleted(true);
-            console.log(isCompleted);
         } else {
             setIsCompleted(false);
-            console.log(isCompleted);
         }
     }
     useEffect(() => {
