@@ -1,75 +1,25 @@
-# Repositorio base del Curso de Introducción a React.js en Platzi
+# TODO Application 
 
-¡Hola, Platzinauta!
+A user-friendly todo application built with React and Bootstrap for a smooth and responsive experience. This app allows you to manage your tasks effectively, leveraging local storage to persist your data even after you refresh the page.
 
-En este repositorio encontrarás el código de todas las clases del [Curso de Introducción a React.js](https://platzi.com/reactjs). Para empezar solo debes clonar este repositorio (`git clone`), instalar sus dependencias (`npm i`) y ejecutar la aplicación (`npm start`).
-
-La rama principal contiene el código con el que eempezamos el curso. En las demás ramas encontrarás el código de las siguientes clases y finalmente el deploy de la aplicación.
-
-¡Mucha suerte aprendiendo React! #NuncaParesDeAprender
-
-## Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies
+* **React:** A JavaScript library for building dynamic user interfaces with a declarative approach, ensuring efficient component-based development.
+* **Bootstrap:** A popular CSS framework providing pre-built components and utility classes, enabling rapid and responsive web design.
+* **Font Awesome:** A comprehensive icon library offering a vast collection of scalable vector icons to enhance the visual appeal and clarity of your application.
+* **Sass (SCSS):** A preprocessor for CSS that extends its functionality with features like variables, mixins, and nesting, leading to cleaner, more maintainable styles
 
 ## Available Scripts
+### Start the Development Server:
+Run the following command to start the development server:
 
-In the project directory, you can run:
+`npm start`
 
-### `npm start`
+This will typically launch your application in a browser window at http://localhost:3000 (the default port for React development servers). You can then make changes to your code and see them reflected in the browser immediately without having to manually rebuild the project.
+Building for Production:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Create a Production Build:
+Run the following command to create an optimized production build of your application:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`npm run build`
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This will create a new folder named build in your project directory containing the production-ready files.
