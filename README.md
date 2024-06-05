@@ -1,6 +1,9 @@
-# TODO Application 
-
+# TODO Application
 A user-friendly todo application built with React and Bootstrap for a smooth and responsive experience. This app allows you to manage your tasks effectively, leveraging local storage to persist your data even after you refresh the page.
+
+## Live application
+The application is running in this url "https://lil-mars.github.io/react-basic/"
+
 ## UI Desktop
 ![img_1.png](img_1.png)
 ## UI Mobile
